@@ -24,4 +24,5 @@ def percentage(no1, no2):
 def print_result():
     pass
 	
+	
 
