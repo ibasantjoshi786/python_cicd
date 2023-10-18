@@ -11,6 +11,7 @@ def test_addition(no1, no2, expected_result):
 
 @pytest.mark.parametrize('no1, no2, expected_result', [(8, 3, 5), (4, 2, 2)])
 def test_subtraction(no1, no2, expected_result):
+    # This function is used for testing subtraction code
     result = calci.subtraction(no1, no2)
     assert result == expected_result
 
