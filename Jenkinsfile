@@ -25,8 +25,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 input "Do you want to deploy the application"
-                bat 'echo Deployment started...'
-                call python calculator.py
+                bat '''
+                    echo Deployment started...
+                    call python calculator.py
+                '''
             }
         }
     }
