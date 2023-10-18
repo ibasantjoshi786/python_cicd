@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Define a route for the root URL
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'Hello, World!. I am a flask web server'
 
 if __name__ == '__main__':
     # Run the Flask application on localhost and port 5000
