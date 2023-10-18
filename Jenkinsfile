@@ -6,6 +6,7 @@ pipeline {
                 bat '''
                     echo Building...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
+                    call python --version
                 '''
             }
         }
