@@ -4,6 +4,7 @@ from cicd_rnd.source import calculator as calci
 
 @pytest.mark.parametrize('no1, no2, expected_result', [(8, 3, 11), (4, 2, 6)])
 def test_addition(no1, no2, expected_result):
+    # This is the function to test add functionality
     result = calci.addition(no1, no2)
     assert result == expected_result
 
