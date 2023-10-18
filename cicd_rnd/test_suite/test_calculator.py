@@ -18,6 +18,7 @@ def test_subtraction(no1, no2, expected_result):
 
 @pytest.mark.parametrize('no1, no2, expected_result', [(8, 3, 24), (4, 2, 8)])
 def test_multiplication(no1, no2, expected_result):
+    # This function is used to test multiplication
     result = calci.multiplication(no1, no2)
     assert result == expected_result
 
