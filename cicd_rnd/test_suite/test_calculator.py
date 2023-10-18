@@ -25,5 +25,6 @@ def test_multiplication(no1, no2, expected_result):
 
 @pytest.mark.parametrize('no1, no2, expected_result', [(8, 4, 2), (6, 2, 3)])
 def test_divide(no1, no2, expected_result):
+    # This function is used to test divide
     result = calci.divide(no1, no2)
     assert result == expected_result
