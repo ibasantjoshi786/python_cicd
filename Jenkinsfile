@@ -7,6 +7,7 @@ pipeline {
                     echo Building...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
+                    call python -m cicd_rnd.test_suite.test_calculator
                 '''
             }
         }
