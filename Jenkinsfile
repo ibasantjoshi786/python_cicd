@@ -31,7 +31,7 @@ pipeline {
                     echo Deployment started...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
-                    start "Flask Server" /B python -m cicd_rnd.source.app
+                    start /B cmd /c "python -m cicd_rnd.source.app & exit
                     ping 127.0.0.1 -n 30 > nul
                 '''
             }
