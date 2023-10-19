@@ -31,8 +31,8 @@ pipeline {
                     echo Deployment started...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
-                    python -m cicd_rnd.source.app
-                    timeout /t 30 /nobreak
+                    start "Flask Server" /B python -m cicd_rnd.source.app
+                    timeout /t 60 /nobreak
                 '''
             }
         }
