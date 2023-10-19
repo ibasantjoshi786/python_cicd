@@ -33,7 +33,7 @@ pipeline {
                     call dir
                     start /B start_flask.bat 
                     set BUILD_ID=%BUILD_ID%
-                    ping 127.0.0.1 -n 10 > nul
+                    echo BUILD_ID is set to !BUILD_ID!
                 '''
             }
         }
