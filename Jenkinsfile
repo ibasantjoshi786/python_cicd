@@ -31,8 +31,8 @@ pipeline {
                     echo Deployment started...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
-                    start /B start_flask.bat
-                    ping 127.0.0.1 -n 30 > nul
+                    start /B start_flask.bat &
+                    ping 127.0.0.1 -n 10 > nul
                 '''
             }
         }
