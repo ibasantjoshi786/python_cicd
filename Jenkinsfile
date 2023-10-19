@@ -32,7 +32,7 @@ pipeline {
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
                     start "Flask Server" /B python -m cicd_rnd.source.app
-                    timeout /t 60 /nobreak
+                    ping 127.0.0.1 -n 30 > nul
                 '''
             }
         }
