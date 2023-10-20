@@ -5,7 +5,7 @@ pipeline {
             steps {
                 bat '''
                     echo stop the current process
-                    for /f "tokens=5" %a in ('netstat -ano ^| findstr :5000') do taskkill /F /PID %a
+                    call terminate_flask.bat
                     echo Building...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
