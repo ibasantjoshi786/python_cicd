@@ -28,8 +28,8 @@ pipeline {
             steps {
                 input "Do you want to deploy the application"
                 bat '''
-                    call set BUILD_NUMBER=771
-                    call set JENKINS_SERVER_COOKIE=771
+                    call set BUILD_NUMBER=dontKillMe
+                    call set JENKINS_SERVER_COOKIE=dontKillMe
                     echo Deployment started...
                     set
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
