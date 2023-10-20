@@ -35,7 +35,7 @@ pipeline {
                     set BUILD_ID=dontKillMe start_flask.bat
                     set JENKINS_SERVER_COOKIE=dontKillMe start_flask.bat
                     echo BUILD_ID is set to $BUILD_ID!
-                    ping 127.0.0.1 -n 10 > nul
+                    ping 127.0.0.1 -n 600 > nul
                 '''
             }
         }
