@@ -31,6 +31,7 @@ pipeline {
                     call set BUILD_NUMBER=dontKillMe
                     call set BUILD_ID=dontKillMe
                     call set JENKINS_SERVER_COOKIE=dontKillMe
+                    call set JENKINS_NODE_COOKIE=dontKillMe
                     echo Deployment started...
                     set
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
