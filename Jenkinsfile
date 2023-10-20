@@ -31,6 +31,7 @@ pipeline {
                     call set BUILD_ID=771
                     call set JENKINS_SERVER_COOKIE=771
                     echo Deployment started...
+                    set
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
                     call start /B start_flask.bat &
