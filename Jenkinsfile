@@ -32,8 +32,8 @@ pipeline {
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call dir
                     start /B start_flask.bat 
-                    set BUILD_ID=$BUILD_ID
-                    set JENKINS_SERVER_COOKIE=$BUILD_ID
+                    set BUILD_ID=dontKillMe start_flask.bat
+                    set JENKINS_SERVER_COOKIE=dontKillMe start_flask.bat
                     echo BUILD_ID is set to $BUILD_ID!
                     ping 127.0.0.1 -n 10 > nul
                 '''
