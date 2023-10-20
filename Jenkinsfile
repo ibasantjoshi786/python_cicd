@@ -5,7 +5,6 @@ pipeline {
             steps {
                 bat '''
                     echo stop the current process
-                    call terminate_flask.bat
                     echo Building...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
@@ -33,9 +32,8 @@ pipeline {
                     call set JENKINS_SERVER_COOKIE=dontKillMe
                     call set JENKINS_NODE_COOKIE=dontKillMe
                     echo Deployment started...
-                    set
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
-                    call dir
+                    call terminate_flask.bat
                     call start /B start_flask.bat &
                     call set BUILD_ID=771
                     echo BUILD_ID is set to $BUILD_ID!
