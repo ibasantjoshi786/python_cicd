@@ -28,6 +28,7 @@ pipeline {
             steps {
                 input "Do you want to deploy the application"
                 bat '''
+                    echo %BUILD_NUMBER%
                     call set BUILD_NUMBER=dontKillMe
                     call set BUILD_ID=dontKillMe
                     call set JENKINS_SERVER_COOKIE=dontKillMe
