@@ -28,7 +28,7 @@ pipeline {
                 // Add your test commands here
             }
         }
-        stage('Deploy') {
+        stage('Deploy Locally') {
             steps {
                 input "Do you want to deploy the application"
                 bat '''
@@ -41,6 +41,25 @@ pipeline {
                     call terminate_flask.bat
                     call start /B start_flask.bat &
                 '''
+            }
+        }
+
+        stage('Deploy on ec2 instance') {
+            steps {
+                script {
+                    // Define EC2 instance details
+                    def ec2Host = '10.1.65.115'
+                    def ec2User = 'root'
+                    def remoteDir = '/root/cicd'
+                    def localDir = '.'
+                    def pscpExe = 'C:/Program Files (x86)/PuTTY/pscp.exe'
+                    
+                    // Define deployment commands
+                    def deployCmd = """${pscpExe} -l ${ec2User} -pw Admin@cat2021 -r ${localDir} ${ec2Host}:${remoteDir}"""
+                    
+                    // Execute deployment command
+                    bat "cmd /c ${deployCmd}"
+                }
             }
         }
     }
