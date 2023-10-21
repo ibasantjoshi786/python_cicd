@@ -54,9 +54,13 @@ pipeline {
                     def localDir = '.'
                     def pscpExe = '"C:\\Program Files (x86)\\PuTTY\\pscp.exe"'
                     
+                    // Retrieve the host key and add it to known_hosts
+                    def sshKeyScanCmd = """ssh-keyscan ${ec2Host} >> ~/.ssh/known_hosts"""
+                    bat "cmd /c ${sshKeyScanCmd}"
+            
                     // Define deployment commands
-                    def deployCmd = """${pscpExe} -l ${ec2User} -pw Admin@cat2021 -r ${localDir} ${ec2Host}:${remoteDir}"""
-                    
+                    def deployCmd = """pscp -l ${ec2User} -pw Admin@cat2021 -r ${localDir} ${ec2Host}:${remoteDir}"""
+            
                     // Execute deployment command
                     bat "cmd /c ${deployCmd}"
                 }
