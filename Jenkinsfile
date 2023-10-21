@@ -52,7 +52,7 @@ pipeline {
                     def ec2User = 'root'
                     def remoteDir = '/root/cicd'
                     def localDir = '.'
-                    def pscpExe = 'C:\\Program Files (x86)\\PuTTY\\pscp.exe'
+                    def pscpExe = '"C:\\Program Files (x86)\\PuTTY\\pscp.exe"'
                     
                     // Define deployment commands
                     def deployCmd = """${pscpExe} -l ${ec2User} -pw Admin@cat2021 -r ${localDir} ${ec2Host}:${remoteDir}"""
