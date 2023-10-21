@@ -55,7 +55,7 @@ pipeline {
                     def pscpExe = '"C:\\Program Files (x86)\\PuTTY\\pscp.exe"'
                     
                     // Retrieve the host key and add it to known_hosts
-                    def sshKeyScanCmd = """ssh-keyscan ${ec2Host} >> ~/.ssh/known_hosts"""
+                    def sshKeyScanCmd = """ssh-keyscan 10.1.65.115 >> ~ ..sh/know_host"""
                     bat "cmd /c ${sshKeyScanCmd}"
             
                     // Define deployment commands
