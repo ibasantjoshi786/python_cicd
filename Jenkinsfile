@@ -17,7 +17,8 @@ pipeline {
                     echo Testing...
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
-                    call pytest
+                    call pytest --excelreport=report.xlsx
+                    call copy report.xlsx E:\\Git Repo\\build_details\\report.xlsx
                 '''
                 
                 // Add your test commands here
