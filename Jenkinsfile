@@ -18,7 +18,9 @@ pipeline {
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
                     call pytest --excelreport=report.xlsx
-                    call copy "report.xlsx" "E:\\Git Repo\\build_details\\report.xlsx"
+                    set build_no=%BUILD_NUMBER%
+                    mkdir E:\\Git Repo\\build_details\\%build_no%
+                    call copy "report.xlsx" "E:\\Git Repo\\build_details\\%build_no%\\report.xlsx"
                 '''
                 
                 // Add your test commands here
@@ -28,7 +30,6 @@ pipeline {
             steps {
                 input "Do you want to deploy the application"
                 bat '''
-                    echo %BUILD_NUMBER%
                     call set BUILD_NUMBER=dontKillMe
                     call set BUILD_ID=dontKillMe
                     call set JENKINS_SERVER_COOKIE=dontKillMe
