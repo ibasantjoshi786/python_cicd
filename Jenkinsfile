@@ -18,9 +18,8 @@ pipeline {
                     call C:\\ProgramData\\Anaconda3\\condabin\\activate.bat C:\\ProgramData\\Anaconda3\\envs\\pelican
                     call python --version
                     call pytest --excelreport=report.xlsx
-                    set build_no=%BUILD_NUMBER% 
-                    call cd E:\\Git Repo\\build_details
-                    call mkdir %build_no%
+                    set build_no=%BUILD_NUMBER%
+                    call mkdir "E:\\Git Repo\\build_details\\%build_no%"
                     call copy "report.xlsx" "E:\\Git Repo\\build_details\\%build_no%\\report.xlsx"
                 '''
                 
