@@ -21,6 +21,8 @@ pipeline {
                     set build_no=%BUILD_NUMBER%
                     call mkdir "E:\\Git Repo\\build_details\\%build_no%"
                     call copy "report.xlsx" "E:\\Git Repo\\build_details\\%build_no%\\report.xlsx"
+                    del report.xlsx
+                    call copy "." "E:\\Git Repo\\build_details\\%build_no%"
                 '''
                 
                 // Add your test commands here
