@@ -47,22 +47,15 @@ pipeline {
         stage('Deploy on ec2 instance') {
             steps {
                 script {
-                    // Define EC2 instance details
-                    def ec2Host = '10.1.65.115'
-                    def ec2User = 'root'
-                    def remoteDir = '/root/cicd'
-                    def localDir = '.'
-                    def pscpExe = '"C:\\Program Files (x86)\\PuTTY\\pscp.exe"'
-                    
-                    // Retrieve the host key and add it to known_hosts
-                    def sshKeyScanCmd = """ssh-keyscan 10.1.65.115 >> ~ ..sh/know_host"""
-                    bat "cmd /c ${sshKeyScanCmd}"
-            
-                    // Define deployment commands
-                    def deployCmd = """pscp -l ${ec2User} -pw Admin@cat2021 -r ${localDir} ${ec2Host}:${remoteDir}"""
-            
-                    // Execute deployment command
-                    bat "cmd /c ${deployCmd}"
+                    // Copy file from 
+                    scp -i "E:\Git Repo\build_details\python_cicd.pem" "E:\Git Repo\build_details\%build_no%" ec2-user@35.92.47.216:/home/ec2-user
+
+                    // Go into ec2 instance
+                    ssh -i "E:\Git Repo\build_details\python_cicd.pem" ec2-user@54.69.142.173
+
+                    // Start the python server
+                    cd %build_no%
+                    nohup python3 -m cicd_rnd.source.app &
                 }
             }
         }
