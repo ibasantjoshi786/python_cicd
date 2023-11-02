@@ -49,10 +49,10 @@ pipeline {
                 script {
                     // Copy file from 
                     bat '''
-                        call scp -r -i "E:\Git Repo\build_details\python_cicd.pem" "E:\Git Repo\build_details\%build_no%" "ec2-user@35.92.47.216:\home\ec2-user"
+                        call scp -r -i "E:\\Git Repo\\build_details\\python_cicd.pem" "E:\\Git Repo\\build_details\\%build_no%" "ec2-user@35.92.47.216:\\home\\ec2-user"
 
                         // Go into ec2 instance
-                        call ssh -i "E:\Git Repo\build_details\python_cicd.pem" ec2-user@54.69.142.173
+                        call ssh -i "E:\\Git Repo\\build_details\\python_cicd.pem" ec2-user@54.69.142.173
 
                         // Start the python server
                         cd %build_no%
