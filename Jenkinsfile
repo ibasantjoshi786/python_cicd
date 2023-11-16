@@ -51,7 +51,7 @@ pipeline {
                     bat '''
                         call rmdir /s /q "E:\\Git Repo\\build_details\\%BUILD_NUMBER%"\\.git
                         scp -r -i "E:\\Git Repo\\build_details\\python_cicd.pem" -v -o StrictHostKeyChecking=no "E:\\Git Repo\\build_details\\%BUILD_NUMBER%" "ec2-user@54.244.4.80:/home/ec2-user"
-
+ 
                         echo Go into ec2 instance
                         ssh -i "E:/Git Repo/build_details/python_cicd.pem" ec2-user@54.244.4.80 "cd %BUILD_NUMBER% && nohup python3 -m cicd_rnd.source.app &"
                         
